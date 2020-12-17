@@ -25,7 +25,7 @@
 </header>
 <!----UC2---->
 <div class="form-content">
-    <form class="form" action="#" onsubmit="save();return false">
+    <form class="form" action="#" onsubmit="save()">
       <div class="form-head">Employee Payroll form</div>
       <div class="row-content">
         <label class="label text" for="name">Name</label>
@@ -36,6 +36,8 @@
           name="name"
           placeholder="Your name.."
           required/>
+          <!----UC10---->
+          <error-output class="text-error" for="text"></error-output>
 </div>
 <!----UC3---->
 <div class="row-content">
@@ -154,6 +156,8 @@
         <option value="2016">2016</option>
     </select>
     </div>
+    <!----UC10---->
+    <error-output class="date-error" for="text"></error-output>
 </div>
 <!----UC6---->
 <div class="row-content">
@@ -168,6 +172,5 @@
     </div>
     </div>   
 </form>
-
 </body>
 </html>
