@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const salary = document.querySelector("#salary");
   const output = document.querySelector(".salary-output");
   output.textContent = salary.value;
-  salary.addEventListener("input", function() {
+  salary.addEventListener("input", function () {
     output.textContent = salary.value;
   });
 });
@@ -24,10 +24,27 @@ window.addEventListener("DOMContentLoaded", (event) => {
 const save = () => {
   try {
     let employeePayrollData = createEmployeePayroll();
+    createAndUpdateStorage(employeePayrollData);
   } catch (e) {
     return;
   }
 };
+//UC12
+function createAndUpadateStorage(employeePayrollData) {
+  let employeePayrollList = JSON.parse(
+    localStorage.getItem("EmployeePayrollList")
+  );
+  if (employeePayrollList != undefined) {
+    employeePayrollList.push(employeePayrollData);
+  } else {
+    employeePayrollList = [employeePayrollData];
+  }
+  alert(employeePayrollList());
+  localStorage.setItem(
+    "EmployeePayrollList",
+    JSON.stringify(employeePayrollList)
+  );
+}
 
 const createEmpoyeePayroll = () => {
   let employeePayrollData = new EmployeePayrollDate();
@@ -71,4 +88,3 @@ const getInputValueById = (id) => {
   let value = document.querySelector(id).value;
   return value;
 };
-
