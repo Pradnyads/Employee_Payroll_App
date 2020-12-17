@@ -1,3 +1,4 @@
+//UC10
 window.addEventListener("DOMContentLoaded", (event) => {
   const name = document.querySelector("#name");
   const textError = document.querySelector(".text-error");
@@ -21,6 +22,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
+//UC11
 const save = () => {
   try {
     let employeePayrollData = createEmployeePayroll();
@@ -29,6 +31,7 @@ const save = () => {
     return;
   }
 };
+
 //UC12
 function createAndUpadateStorage(employeePayrollData) {
   let employeePayrollList = JSON.parse(
@@ -88,3 +91,32 @@ const getInputValueById = (id) => {
   let value = document.querySelector(id).value;
   return value;
 };
+
+//UC13
+const resetForm = () => {
+  setValue('#name',' ');
+  unsetSelectedValues('[name=profile]');
+  unsetSelectedValues('[name=gender]');
+  unsetSelectedValues('[name=department]');
+  setValue('#salary',' ');
+  setValue('#notes',' ');
+  setValue('#day','1');
+  setValue('#month','January');
+  setValue('#year','2020');
+  }
+  
+  const unsetSelectedValues = (propertyValue) => {
+  let allItems = document.querySelectorAll(propertyValue);
+  allItems.forEach(item => {
+  item.checked = false;
+  });
+  }
+  const setTextValue = (id, value) => {
+  const element = document.querySelector(id);
+  element.textContent = value;
+  }
+  
+  const setValue = (id, value) => {
+  const element = document.querySelector(id);
+  element.value = value;
+  }
