@@ -33,7 +33,7 @@ const save = () => {
 };
 
 //UC12
-function createAndUpadateStorage(employeePayrollData) {
+function createAndUpdateStorage(employeePayrollData) {
   let employeePayrollList = JSON.parse(
     localStorage.getItem("EmployeePayrollList")
   );
@@ -82,6 +82,11 @@ const getSelectedValues = (propertyValue) => {
   });
   return selItems;
 };
+
+const getInputElementValue = (id) => {
+  let value = document.querySelector(id).value;
+  return value;
+};
 /*
  *1: querySelector is newer feature.
  *2: the querySelector method can be used when selecting by element name, nesting, or class name
@@ -94,29 +99,29 @@ const getInputValueById = (id) => {
 
 //UC13
 const resetForm = () => {
-  setValue('#name',' ');
-  unsetSelectedValues('[name=profile]');
-  unsetSelectedValues('[name=gender]');
-  unsetSelectedValues('[name=department]');
-  setValue('#salary',' ');
-  setValue('#notes',' ');
-  setValue('#day','1');
-  setValue('#month','January');
-  setValue('#year','2020');
-  }
-  
-  const unsetSelectedValues = (propertyValue) => {
+  setValue("#name", " ");
+  unsetSelectedValues("[name=profile]");
+  unsetSelectedValues("[name=gender]");
+  unsetSelectedValues("[name=department]");
+  setValue("#salary", " ");
+  setValue("#notes", " ");
+  setValue("#day", "1");
+  setValue("#month", "January");
+  setValue("#year", "2020");
+};
+
+const unsetSelectedValues = (propertyValue) => {
   let allItems = document.querySelectorAll(propertyValue);
-  allItems.forEach(item => {
-  item.checked = false;
+  allItems.forEach((item) => {
+    item.checked = false;
   });
-  }
-  const setTextValue = (id, value) => {
+};
+const setTextValue = (id, value) => {
   const element = document.querySelector(id);
   element.textContent = value;
-  }
-  
-  const setValue = (id, value) => {
+};
+
+const setValue = (id, value) => {
   const element = document.querySelector(id);
   element.value = value;
-  }
+};
