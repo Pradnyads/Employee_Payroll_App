@@ -37,12 +37,12 @@ createInnerHtml = () => {
   <td>${empPayrollData._gender}</td>
   <td>${getDeptHtml(empPayrollData._department)}</td>
   <td>${empPayrollData._salary}</td>
-  <td>${empPayrollData._startDate}</td>
+  <td>${stringifyDate(empPayrollData._startDate)}</td>
   <td>
-  <img id="1" name="${
+  <img id="${
     empPayrollData._id
   }" onclick="remove(this)" alt="delete" width="30px" src="../Assets/icons/delete-black-18dp.svg">
-  <img id="1" name="${
+  <img id="${
     empPayrollData._id
   }" onclick="update(this)" alt="edit" width="30px" src="../Assets/icons/create-black-18dp.svg ">
   </td>
@@ -58,28 +58,17 @@ function getDeptHtml(deptList) {
   return deptHtml;
 }
 
-/*const createEmployeePayrollJSON = () => {
-  let empPayrollListLocal = [
-    {
-      _name: "Manali Patil",
-      _gender: "Female",
-      _department: ["Finance", "Hr"],
-      _salary: "300000",
-      _startDate: "18 June 2018",
-      _note: "",
-      _id: new Date().getTime(),
-      _profilePic: "../Assets/ProfileImage/img1.png",
-    },
-    {
-      _profilePic: "../Assets/ProfileImage/img3.png",
-      _name: "Manan Shah",
-      _gender: "Male",
-      _department: ["Engineering", "Sales"],
-      _salary: "200000",
-      _startDate: "16 May 2019",
-      _note: "",
-      _id: new Date().getTime(),
-    },
-  ];
-  return empPayrollListLocal;
-};*/
+//UC18- View Employee Payroll details in a Tabular Format from JSON Object.
+
+//UC20- Remove an Employee from the Payroll details.
+const remove = (node) => {
+  let empPayrollData = empPayrollList.find((empData) => empData._id == node.id);
+  if (!empPayrollData) return;
+  const index = empPayrollList
+    .map((empData) => empData._id)
+    .indexOf(empPayrollData._id);
+  empPayrollList.splice(index, 1);
+  localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+  document.querySelector(".emp-count").textContent = empPayrollList.length;
+  createInnerHtml();
+}

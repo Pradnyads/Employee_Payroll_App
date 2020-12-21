@@ -94,7 +94,8 @@ const createEmployeePayroll = () => {
     getInputValueById("#month") +
     " " +
     getInputValueById("#year");
-  employeePayrollData.date = date;
+  employeePayrollData.startDate = date;
+  employeePayrollData.id = Date.parse(new Date());
   alert(employeePayrollData.toString());
   return employeePayrollData;
 };
@@ -138,7 +139,7 @@ const getInputValueById = (id) => {
 
 //UC13 Reset values
 const resetForm = () => {
-  setValue("#name", "");
+  setValue("#name", " ");
   unsetSelectedValues("[name=profile]");
   unsetSelectedValues("[name=gender]");
   unsetSelectedValues("[name=department]");
