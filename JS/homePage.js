@@ -1,16 +1,16 @@
 //UC19
 let empPayrollList;
-window.addEventListener('DOMContentLoaded', (event) => {
-empPayrollList = getEmployeePayrollDataFromStorage();
-document.querySelector(".emp-count").textContent = empPayrollList.length;
-createInnerHtml();
-}
-);
+window.addEventListener("DOMContentLoaded", (event) => {
+  empPayrollList = getEmployeePayrollDataFromStorage();
+  document.querySelector(".emp-count").textContent = empPayrollList.length;
+  createInnerHtml();
+  localStorage.removeItem("editEmp");
+});
 const getEmployeePayrollDataFromStorage = () => {
-let employeePayrollList = createEmployeePayrollJSON();
-localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
-return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
-}
+  return localStorage.getItem("EmployeePayrollList")
+    ? JSON.parse(localStorage.getItem("EmployeePayrollList"))
+    : [];
+};
 /*UC17 to view Employee Payroll details in a Tabular
 Format from JS File using Template Literals. 
 *The innerHTML is populated by attaching a Listener to DOMContentLoaded event.*/
@@ -21,9 +21,10 @@ instead of double or single quotes.
 indicated by the dollar sign and curly braces
 */
 createInnerHtml = () => {
-  if (empPayrollList.length == 0) return;
   const headerHtml = `<tr><th></th><th>Name</th><th>Gender</th><th>Department</th>
   <th>Salary</th><th>start Date</th><th>Actions</th></tr>`;
+
+  if (empPayrollList.length == 0) return;
   let innerHtml = `${headerHtml}`;
 
   for (const empPayrollData of empPayrollList) {
@@ -48,7 +49,7 @@ createInnerHtml = () => {
   </tr>`;
   }
   document.querySelector("#display").innerHTML = innerHtml;
-}
+};
 function getDeptHtml(deptList) {
   let deptHtml = "";
   for (const dept of deptList) {
@@ -57,7 +58,7 @@ function getDeptHtml(deptList) {
   return deptHtml;
 }
 
-const createEmployeePayrollJSON = () => {
+/*const createEmployeePayrollJSON = () => {
   let empPayrollListLocal = [
     {
       _name: "Manali Patil",
@@ -81,5 +82,4 @@ const createEmployeePayrollJSON = () => {
     },
   ];
   return empPayrollListLocal;
-};
-
+};*/
