@@ -51,7 +51,7 @@ class EmployeePayrollData {
   set note(note) {
     this._note = note;
   }
- set startDate(startDate) {
+  set startDate(startDate) {
     this._startDate = startDate;
   }
 
@@ -74,9 +74,9 @@ class EmployeePayrollData {
       this.department +
       ", salary = " +
       this.salary +
-      ", startDate= " +
+      ", startDate = " +
       empDate +
-      ", note= " +
+      ", note = " +
       this.note
     );
   }

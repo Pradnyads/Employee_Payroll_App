@@ -1,4 +1,4 @@
-//UC19
+//UC19-View Employee Payroll details from Local Storage.
 let empPayrollList;
 window.addEventListener("DOMContentLoaded", (event) => {
   empPayrollList = getEmployeePayrollDataFromStorage();
@@ -71,4 +71,14 @@ const remove = (node) => {
   localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
   document.querySelector(".emp-count").textContent = empPayrollList.length;
   createInnerHtml();
-}
+};
+
+//UC21- Updated Employee Payroll into Local Storage.
+const update = (node) => {
+  let empPayrollData = empPayrollList.find(
+    (empData) => (empData._id = node.id)
+  );
+  if (!empPayrollData) return;
+  localStorage.setItem("editEmp", JSON.stringify(empPayrollData));
+  window.location.replace(site_properties.add_emp_payroll_page);
+};
