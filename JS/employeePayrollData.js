@@ -1,5 +1,5 @@
-class EmployeePayrollData {
-  //getter and setter method
+class EmployeePayRoll {
+  // getter and setter method
   get id() {
     return this._id;
   }
@@ -11,10 +11,9 @@ class EmployeePayrollData {
     return this._name;
   }
   set name(name) {
-    this._name = name;
     let nameRegex = RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
     if (nameRegex.test(name)) this._name = name;
-    else throw "name is Incorrect!";
+    else throw "Name is Incorrect!";
   }
 
   get profilePic() {
@@ -51,9 +50,7 @@ class EmployeePayrollData {
   set note(note) {
     this._note = note;
   }
-  //set startDate(startDate) {
-  //this._startDate = startDate;
-  //}
+
   get startDate() {
     return this._startDate;
   }
@@ -66,24 +63,23 @@ class EmployeePayrollData {
     this._startDate = startDate;
   }
 
-  //method
   toString() {
     return (
-      "id= " +
+      "id=" +
       this.id +
-      ", name = " +
+      ", name='" +
       this.name +
-      ", gender = " +
+      ", gender='" +
       this.gender +
-      ", profilePic = " +
+      ", profilePic='" +
       this.profilePic +
-      ", department = " +
+      ", department=" +
       this.department +
-      ", salary = " +
+      ", salary=" +
       this.salary +
-      ", startDate = " +
+      ", startDate=" +
       this.startDate +
-      ", note = " +
+      ", note=" +
       this.note
     );
   }
