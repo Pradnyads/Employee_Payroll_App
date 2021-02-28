@@ -209,6 +209,8 @@ error-output {
   .form {
     width: 85%;
     padding: 44px 20px;
+    overflow-x: scroll;
+    overflow-y: scroll;
   }
 }
 
@@ -218,6 +220,8 @@ error-output {
     margin-right: 0px;
     margin-top: 10px;
     width: 100%;
+    overflow-x: scroll;
+    overflow-y: scroll;
   }
   .form-content {
     flex-flow: wrap;
