@@ -1,0 +1,29 @@
+{
+  "employee": [
+    {
+      "id": "1",
+      "_name": "Minal Shah",
+      "_gender": "male",
+      "_department": [
+        "Engineer"
+      ],
+      "_salary": "396700",
+      "_startDate": "22 Dec 2020",
+      "_note": "First",
+      "_profilePic": "../Assets/ProfileImage/img1.png"
+    },
+    {
+      "_name": "Priyansh Yadav",
+      "_profilePic": "../Assets/ProfileImage/img4.png",
+      "_gender": "male",
+      "_department": [
+        "HR",
+        "Sales"
+      ],
+      "_salary": "374400",
+      "_note": "Good Employee",
+      "_startDate": "17 Feb 2021",
+      "id": "v8aziau"
+    }
+  ]
+}
